@@ -1,0 +1,296 @@
+:root {
+  --verde-oscuro: #0e1a5b;
+  --verde-claro: #e6f9e0;
+  --blanco: #fff;
+  --gris-texto: #333;
+  --header-height: 80px;
+}
+
+/* === CONTENEDOR GENERAL === */
+.home-container {
+  padding-top: var(--header-height);
+  display: flex;
+  flex-direction: column;
+}
+
+/* === HERO / SLIDER === */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 80vh;
+  min-height: 300px;
+}
+.slider-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+.slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+.hero-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 2;
+  border-radius: 4px;
+  line-height: 1;
+}
+.prev { left: 1rem; }
+.next { right: 1rem; }
+.hero-content {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(42, 82, 40, 0.6);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 80%;
+  width: max-content;
+}
+.hero-content h1 {
+  font-size: 2rem;
+  margin: 0 0 0.4rem;
+}
+.hero-content p {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* === QUIÉNES SOMOS === */
+.quienes {
+  background: var(--blanco);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.quienes-img {
+  display: block;
+  max-width: 100%;
+  width: 500px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+}
+.quienes-text h2 {
+  color: #055e04;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.quienes-text p {
+  color: var(--gris-texto);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* === MISIÓN & VISIÓN === */
+.mision-vision {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mision, .vision {
+  flex: 1;
+  padding: 3rem 2rem;
+  min-width: 280px;
+}
+.mision {
+  background: #000;
+}
+.vision {
+  background: #044e03;
+}
+.mision h3, .vision h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.mision p, .vision p {
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* === CLIENTES === */
+.clientes-area {
+  background: var(--blanco);
+  padding: 2rem 0;
+}
+.clientes-intro {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+}
+.clientes-intro h2 {
+  color: #055e04;
+  font-size: 2rem;
+}
+.clientes-intro p {
+  color: #000;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.clientes-carousel {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  background: #e0ffe0;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+.clientes-track {
+  display: flex;
+  width: calc(8 * 220px * 2);
+  animation: scroll 20s linear infinite;
+}
+.cliente-item {
+  flex: 0 0 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.cliente-item img {
+  max-height: 100px;
+  object-fit: contain;
+}
+.clientes-carousel:hover .clientes-track {
+  animation-play-state: paused;
+}
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================ */
+/*  RESPONSIVE — TABLET (≤768px)               */
+/* ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 66px;
+  }
+
+  .hero {
+    height: 55vh;
+  }
+  .hero-content {
+    bottom: 8%;
+    padding: 0.7rem 1.2rem;
+    max-width: 92%;
+    width: auto;
+  }
+  .hero-content h1 {
+    font-size: 1.4rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .arrow {
+    font-size: 1.4rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .quienes {
+    padding: 2rem 1rem;
+  }
+  .quienes-text h2 {
+    font-size: 1.9rem;
+  }
+  .quienes-text p {
+    font-size: 0.95rem;
+  }
+
+  .mision-vision {
+    flex-direction: column;
+  }
+  .mision, .vision {
+    padding: 2rem 1.5rem;
+    min-width: unset;
+  }
+
+  .clientes-intro h2 {
+    font-size: 1.6rem;
+  }
+  .cliente-item {
+    flex: 0 0 140px;
+    padding: 0 0.5rem;
+  }
+  .cliente-item img {
+    max-height: 70px;
+  }
+  .clientes-track {
+    width: calc(8 * 140px * 2);
+    animation-duration: 16s;
+  }
+}
+
+/* ============================================ */
+/*  RESPONSIVE — MÓVIL PEQUEÑO (≤480px)        */
+/* ============================================ */
+@media (max-width: 480px) {
+  .hero {
+    height: 46vh;
+  }
+  .hero-content {
+    bottom: 6%;
+    padding: 0.5rem 0.9rem;
+  }
+  .hero-content h1 {
+    font-size: 1.1rem;
+  }
+  .hero-content p {
+    font-size: 0.82rem;
+  }
+
+  .quienes {
+    padding: 1.5rem 1rem;
+  }
+  .quienes-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .mision, .vision {
+    padding: 1.5rem 1rem;
+  }
+  .mision h3, .vision h3 {
+    font-size: 1.05rem;
+  }
+  .mision p, .vision p {
+    font-size: 0.88rem;
+  }
+
+  .clientes-intro h2 {
+    font-size: 1.3rem;
+  }
+  .clientes-intro p {
+    font-size: 0.88rem;
+  }
+  .cliente-item {
+    flex: 0 0 100px;
+  }
+  .cliente-item img {
+    max-height: 55px;
+  }
+  .clientes-track {
+    width: calc(8 * 100px * 2);
+    animation-duration: 12s;
+  }
+}

@@ -1,0 +1,204 @@
+/* Contenedor para botón flotante y tooltip */
+.pqrs-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+/* Botón flotante */
+.pqrs-button {
+  width: 70px;
+  height: 70px;
+  background-color: var(--verde-oscuro, #28a745);
+  color: var(--blanco);
+  border: none;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.pqrs-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Tooltip compacto */
+.pqrs-tooltip {
+  position: absolute;
+  right: 100px;
+  bottom: 50%;
+  transform: translateY(50%);
+  background: rgba(76, 177, 89, 0.9); 
+  color: var(--blanco);
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  font-size: 0.95rem;
+}
+.pqrs-container:hover .pqrs-tooltip {
+  opacity: 1;
+  transform: translateX(0) translateY(50%);
+}
+
+/* Overlay y modal */
+.pqrs-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 9999;
+}
+.pqrs-modal {
+  background: var(--blanco);
+  width: 95%; max-width: 600px;
+  border-radius: 8px;
+  position: relative;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.pqrs-close {
+  position: absolute; top: 8px; right: 12px;
+  background: transparent; border: none;
+  font-size: 1.5rem; cursor: pointer; color: #777;
+}
+
+/* Formulario */
+.pqrs-form { 
+  margin-top: 1rem; 
+  font-family: 'Lato', sans-serif; 
+}
+.pqrs-form h2 {
+  text-align: center; 
+  margin-bottom: 1rem;
+  font-family: 'Oswald', sans-serif; 
+  color: var(--verde-oscuro);
+}
+.seccion {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--verde-oscuro);
+  border-radius: 4px;
+  padding: 0.8rem;
+}
+.seccion legend {
+  padding: 0 0.5rem;
+  font-weight: bold; 
+  color: var(--blanco);
+  background-color: var(--verde-oscuro);
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.fila {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+.fila label {
+  flex: 1 1 45%; display: flex; flex-direction: column;
+  font-size: 0.9rem;
+}
+.fila input {
+  margin-top: 0.3rem; padding: 0.4rem;
+  border: 1px solid #ccc; border-radius: 4px;
+  width: 100%; box-sizing: border-box;
+}
+.tipos-container {
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.tipo-btn {
+  flex: 1 1 30%; padding: 0.6rem;
+  border: 1px solid var(--verde-claro);
+  background: var(--blanco); border-radius: 4px;
+  cursor: pointer; transition: background-color 0.3s, color 0.3s;
+}
+.tipo-btn:hover { background: var(--verde-claro); }
+.tipo-btn.selected {
+  background: var(--verde-oscuro); 
+  color: var(--blanco); 
+  border-color: var(--verde-oscuro);
+}
+.servicio-input,
+.descripcion-input {
+  width: 100%; padding: 0.5rem;
+  border: 1px solid #ccc; border-radius: 4px;
+  font-size: 0.9rem; resize: vertical;
+  box-sizing: border-box;
+}
+.servicio-input { min-height: 60px; }
+.descripcion-input { min-height: 120px; }
+.char-count {
+  text-align: right; font-size: 0.8rem; color: #666; margin-top: 0.3rem;
+}
+.pqrs-submit {
+  display: block; width: 100%; padding: 0.8rem;
+  background-color: var(--verde-oscuro); 
+  color: var(--blanco); border: none;
+  border-radius: 4px; font-size: 1rem; font-weight: bold;
+  cursor: pointer; transition: background-color 0.3s;
+}
+.pqrs-submit:disabled {
+  opacity: 0.6; cursor: not-allowed;
+}
+.pqrs-submit:hover:not(:disabled) {
+  background-color: var(--verde-oscuro);
+}
+.pqrs-message {
+  margin-top: 0.8rem; text-align: center; color: green;
+}
+
+/* ============================================ */
+/*  RESPONSIVE — MÓVIL (≤480px)                */
+/* ============================================ */
+@media (max-width: 480px) {
+  .pqrs-container {
+    bottom: 16px;
+    right: 16px;
+  }
+  .pqrs-button {
+    width: 58px;
+    height: 58px;
+    font-size: 0.95rem;
+  }
+  /* Ocultar tooltip en móvil (usa hover que no existe en touch) */
+  .pqrs-tooltip {
+    display: none;
+  }
+  .pqrs-modal {
+    width: 98%;
+    padding: 1rem;
+    max-height: 88vh;
+    border-radius: 12px 12px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+  }
+  /* En móvil el overlay alinea al fondo */
+  .pqrs-overlay {
+    align-items: flex-end;
+  }
+  /* Filas de 2 campos → 1 campo */
+  .fila {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .fila label {
+    flex: 1 1 100%;
+  }
+  /* Botones de tipo PQRS: 2 por fila */
+  .tipo-btn {
+    flex: 1 1 45%;
+  }
+  .seccion legend {
+    font-size: 0.82rem;
+  }
+}

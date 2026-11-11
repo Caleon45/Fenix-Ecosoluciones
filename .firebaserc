@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tarjeta-fidelidad-estrato"
+  },
+  "targets": {
+    "tarjeta-fidelidad-estrato": {
+      "hosting": {
+        "fenix-ecosoluciones": [
+          "fenix-ecosoluciones"
+        ]
+      }
+    }
+  }
+}

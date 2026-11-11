@@ -1,0 +1,320 @@
+/* keyframes para entrada */
+@keyframes fadeInAll {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sección principal */
+.empresa-section {
+  scroll-margin-top: 5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-top: 0; /* el banner tiene su propio margin-top */
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  opacity: 0;
+}
+.empresa-section.loaded {
+  animation: fadeInAll 0.6s ease forwards;
+}
+
+/* Banner full width */
+.empresa-banner {
+  position: relative;
+  left: 50%; right: 50%;
+  margin-left: -50vw; margin-right: -50vw;
+  width: 100vw;
+  height: 400px;
+  background-size: cover; background-position: center;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 88px; /* coincide con --header-height desktop */
+}
+.empresa-banner h1 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-family: 'Oswald', sans-serif;
+  padding: 0.5rem 1rem;
+  background-color: rgba(51, 75, 24, 0.6);
+  border-radius: 4px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+}
+
+/* Descripción */
+.descripcion {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Imagen principal */
+.empresa-image {
+  display: block;
+  margin: 3rem auto; /* Márgenes iguales arriba y abajo significativamente ampliados */
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Cards de valores (sección inicial) */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.card {
+  flex: 1; max-width: 250px;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.card:hover { transform: scale(1.05); }
+.card h4 { margin-bottom: 0.5rem; font-family: 'Oswald', sans-serif; }
+.card img { width: 100%; height: auto; border-radius: 4px; margin-bottom: 0.5rem; }
+.card p { font-size: 0.95rem; color: #555; line-height: 1.4; }
+
+/* Plantel */
+.plantel-container {
+  background-color: #e6f9e0;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.plantel-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+}
+.plantel-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.plantel-toggle button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #c6eac6;
+  font-family: 'Lato Heavy', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.plantel-toggle button.active { background-color: #8fd78f; }
+.plantel-section {
+  transition: opacity 0.5s ease, max-height 0.5s ease;
+  overflow: hidden;
+}
+.plantel-section.inactive { opacity: 0; max-height: 0; pointer-events: none; }
+.plantel-section.active   { opacity: 1; max-height: 1000px; }
+.empleado {
+  display: flex; align-items: center; margin-bottom: 1.2rem;
+}
+.empleado-gerente { font-size: 1.1em; }
+.empleado img {
+  width: 80px; height: 80px; object-fit: cover;
+  border-radius: 50%; margin-right: 1rem;
+  border: 2px solid #ccc;
+}
+.empleado-info strong {
+  display: block; margin-bottom: 0.4rem;
+  font-family: 'Lato Heavy', sans-serif;
+}
+.empleado-info span {
+  display: block; font-size: 0.95rem; color: #555;
+}
+
+/* Sección de Principios Corporativos */
+.codigoetico-section {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+.codigoetico-section h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Layout de etiqueta + tarjetas */
+.codigoetico-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+/* etiqueta Código Ético */
+.codigoetico-label {
+  flex: 0 0 200px;
+  text-align: center;
+}
+.codigoetico-label h3 {
+  font-family: 'Oswald', sans-serif;
+  color: #1b3a1b;
+  margin-bottom: 0.8rem;
+}
+.codigoetico-label img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* tarjetas de principios */
+.codigoetico-cards { flex: 1; }
+.cards-row {
+  display: flex; gap: 1rem; margin-bottom: 1rem;
+}
+.cards-row--end { justify-content: flex-end; }
+
+.card-etico {
+  position: relative;
+  flex: 1 1 0; max-width: 180px;
+  background-color: #26532b; color: #fff;
+  padding: 1rem; border-radius: 8px;
+  text-align: center; overflow: hidden;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+}
+.card-etico h4 {
+  font-family: 'Oswald', sans-serif;
+  margin-bottom: 0.8rem;
+  transition: opacity 0.2s ease, display 0s 0.2s;
+}
+.card-etico img {
+  width: auto; max-width: 100%;
+  height: 80px; object-fit: contain;
+  display: block; margin: 0 auto;
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+/* Hover: ocultar título (display none) y zoom imagen, centrada */
+.card-etico:hover h4 {
+  display: none;
+}
+.card-etico:hover img {
+  transform: scale(1.2);
+}
+
+/* ============================================ */
+/*  RESPONSIVE — TABLET (≤768px)               */
+/* ============================================ */
+@media (max-width: 768px) {
+  .empresa-section {
+    padding: 0 1rem;
+  }
+  .empresa-banner {
+    height: 250px;
+    margin-top: 66px; /* header height en tablet */
+  }
+  .empresa-banner h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .descripcion {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  /* Cards de valores: 2 columnas en tablet */
+  .cards-container {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .card {
+    flex: 1 1 calc(50% - 0.75rem);
+    max-width: none;
+  }
+  /* Plantel */
+  .plantel-container {
+    padding: 1.5rem 1rem;
+  }
+  .plantel-toggle {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .plantel-toggle button {
+    flex: 1;
+    text-align: center;
+  }
+  .empleado {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  /* Código ético */
+  .codigoetico-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .codigoetico-label {
+    margin-bottom: 1rem;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 280px;
+  }
+  .cards-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .card-etico {
+    max-width: 45%;
+    flex: 1 1 45%;
+  }
+}
+
+/* ============================================ */
+/*  RESPONSIVE — MÓVIL PEQUEÑO (≤480px)        */
+/* ============================================ */
+@media (max-width: 480px) {
+  .empresa-banner {
+    height: 200px;
+    margin-top: 50px; /* header height en móvil pequeño */
+  }
+
+  .empresa-banner h1 {
+    font-size: 1.4rem;
+    padding: 0.4rem 0.75rem;
+  }
+  /* Cards de valores: 1 columna */
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+    max-width: 340px;
+    flex: none;
+  }
+  /* Plantel */
+  .empleado img {
+    width: 64px;
+    height: 64px;
+  }
+  .empleado-info strong {
+    font-size: 0.95rem;
+  }
+  .plantel-title {
+    font-size: 1.2rem;
+  }
+  /* Código ético: 1 columna */
+  .cards-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-etico {
+    max-width: 90%;
+    width: 90%;
+    flex: none;
+  }
+  .codigoetico-section h2 {
+    font-size: 1.4rem;
+  }
+}

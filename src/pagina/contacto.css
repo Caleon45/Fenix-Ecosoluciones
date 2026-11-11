@@ -1,0 +1,284 @@
+/* src/pagina/contacto.css */
+
+:root {
+  --verde-oscuro: #2c6e49;
+  --verde-claro:  #a8d5ba;
+  --blanco:       #ffffff;
+}
+
+/* Contenedor principal */
+.contacto-contenedor {
+  /* Espacio superior para que el header fijo no tape el contenido */
+  padding-top: 80px;
+
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* Cuadrícula de contenido */
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+@media (min-width: 768px) {
+  .contacto-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+  background: var(--blanco);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(44,110,73,0.1);
+  border: 1px solid rgba(44,110,73,0.2);
+  transition: transform 0.3s ease;
+}
+.formulario-contacto:hover { transform: translateY(-5px); }
+
+.formulario-contacto h2 {
+  color: var(--verde-oscuro);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+}
+.formulario-contacto h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--verde-oscuro);
+  border-radius: 2px;
+}
+
+.form-group {
+  margin-bottom: 1.8rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--verde-oscuro);
+  font-weight: 600;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--verde-oscuro);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--verde-claro);
+  box-shadow: 0 0 8px rgba(44,110,73,0.2);
+}
+
+/* Placeholder de CAPTCHA para reservar espacio */
+.captcha-container-placeholder {
+  min-height: 78px; /* Altura aproximada del widget de reCAPTCHA */
+  margin: 1rem 0;
+}
+
+/* Botón enviar */
+.boton-enviar {
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  padding: 1.2rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 1.5rem auto 0;
+}
+.boton-enviar:hover {
+  background-color: var(--verde-claro);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44,110,73,0.3);
+}
+.boton-enviar:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mapa */
+.mapa-container {
+  background: var(--blanco);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(44,110,73,0.1);
+  border: 1px solid rgba(44,110,73,0.2);
+}
+.mapa-container h2 {
+  color: var(--verde-oscuro);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+}
+.mapa-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--verde-oscuro);
+  border-radius: 2px;
+}
+.mapa-container iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  border: none;
+}
+.mapa-direccion {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--verde-oscuro);
+}
+
+/* WhatsApp */
+.whatsapp-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+.boton-whatsapp {
+  background-color: #25d366;
+  color: var(--blanco);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.boton-whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+}
+
+/* Modal de estado */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,110,73,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-contenido {
+  background: var(--blanco);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.modal-contenido p {
+  color: var(--verde-oscuro);
+  margin-bottom: 1rem;
+}
+.spinner {
+  border: 4px solid rgba(44,110,73,0.1);
+  border-top: 4px solid var(--verde-oscuro);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.boton-ok {
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.boton-ok:hover {
+  background-color: var(--verde-claro);
+  transform: translateY(-2px);
+}
+
+/* ============================================ */
+/*  RESPONSIVE — TABLET (≤768px)               */
+/* ============================================ */
+@media (max-width: 768px) {
+  .contacto-contenedor {
+    padding-top: 66px;
+    margin: 2rem auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .formulario-contacto,
+  .mapa-container {
+    padding: 1.5rem;
+  }
+  .mapa-container iframe {
+    height: 250px;
+  }
+  .boton-enviar {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* ============================================ */
+/*  RESPONSIVE — MÓVIL PEQUEÑO (≤480px)        */
+/* ============================================ */
+@media (max-width: 480px) {
+  .contacto-contenedor {
+    margin: 1rem auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .formulario-contacto,
+  .mapa-container {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  .formulario-contacto h2,
+  .mapa-container h2 {
+    font-size: 1.4rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .mapa-container iframe {
+    height: 200px;
+  }
+  .boton-whatsapp {
+    font-size: 0.95rem;
+    padding: 0.85rem 1.5rem;
+  }
+  .modal-contenido {
+    padding: 1.5rem;
+  }
+}
